@@ -1,0 +1,418 @@
+{
+  "sections": {
+    "f2ea43de-1d3a-4529-a578-006785463517": {
+      "type": "ax-slider",
+      "blocks": {
+        "template--17425349509407__f2ea43de-1d3a-4529-a578-006785463517-1672741572d7089ecf-0": {
+          "type": "slide",
+          "settings": {
+            "img_slider": "shopify:\/\/shop_images\/Rectangle.png",
+            "img_slider_mobile": "shopify:\/\/shop_images\/Image.png",
+            "subheading": "Jusqu’au 29 septembre",
+            "title": "Aménagez votre rentrée<br>Vente flash -20%.",
+            "heading_size": "h1",
+            "description": "",
+            "hide_button": false,
+            "button_text": "Découvrir les meubles",
+            "url": "\/#",
+            "link_blank": false,
+            "style_button": "btn btn-primary",
+            "content_position": "middle-left",
+            "mobile_position": "mobile-center",
+            "begin_date": "",
+            "end_date": "",
+            "overlay": false,
+            "overlay_opacity": 0.2,
+            "subheading_color": "#ffffff",
+            "title_color": "#ffffff",
+            "description_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--17425349509407__f2ea43de-1d3a-4529-a578-006785463517-1672741572d7089ecf-0"
+      ],
+      "settings": {
+        "divide": false,
+        "autoplay": false,
+        "speed": 300,
+        "random": false,
+        "loop": false,
+        "buttons": false,
+        "pagination": false,
+        "image_ratio": "display",
+        "fixed_height": 600,
+        "content_mobile": false
+      }
+    },
+    "9653b31a-17c5-4f5f-b0e4-b7e0f94f4052": {
+      "type": "ax-featured-collections",
+      "blocks": {
+        "template--16858192576799__9653b31a-17c5-4f5f-b0e4-b7e0f94f4052-1673595938041e4c96-0": {
+          "type": "collection",
+          "settings": {
+            "title": "Canapé-lit",
+            "collection": "canape-convertible",
+            "button_text": "",
+            "style_button": "btn btn-primary"
+          }
+        },
+        "c6b5a111-5d58-4164-a544-97600c18a060": {
+          "type": "collection",
+          "settings": {
+            "title": "Armoire-lit",
+            "collection": "canape-convertible",
+            "button_text": "",
+            "style_button": "btn btn-primary"
+          }
+        },
+        "99744567-495e-470c-a35e-e1776b4182b0": {
+          "type": "collection",
+          "settings": {
+            "title": "Table & Console",
+            "collection": "canape-convertible",
+            "button_text": "",
+            "style_button": "btn btn-primary"
+          }
+        }
+      },
+      "block_order": [
+        "template--16858192576799__9653b31a-17c5-4f5f-b0e4-b7e0f94f4052-1673595938041e4c96-0",
+        "c6b5a111-5d58-4164-a544-97600c18a060",
+        "99744567-495e-470c-a35e-e1776b4182b0"
+      ],
+      "settings": {
+        "subheading": "Nos incontournables",
+        "products_to_show": 3,
+        "products_limit": 9,
+        "image_ratio": "square",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "enable_quick_add": false,
+        "show_rating": false,
+        "color_scheme": "background-2",
+        "padding_top": 72,
+        "padding_bottom": 48
+      }
+    },
+    "1bb96000-a243-49a3-a6a6-96b1541ba3c8": {
+      "type": "ax-featured-product",
+      "blocks": {
+        "cf34c74c-4460-48fe-9487-c5be86595f04": {
+          "type": "content",
+          "settings": {
+            "image_left": "shopify:\/\/shop_images\/Image_878db070-dabb-4dae-8b7e-d4dde865cabb.png",
+            "image_right": "shopify:\/\/shop_images\/Image_1_ee09a739-c3dd-4759-b7fa-c14b672b7bff.png",
+            "text": "Nos canapés convertible",
+            "url": "\/"
+          }
+        },
+        "07008a95-59a7-4421-8463-89893e7bf550": {
+          "type": "content",
+          "settings": {
+            "image_left": "shopify:\/\/shop_images\/Rectangle_1_3aa6dc86-cc1d-4b0c-82b0-eca16569fc74.png",
+            "image_right": "shopify:\/\/shop_images\/Rectangle_b11a5e3d-66d5-4f9f-9e6d-d20a5d353a75.png",
+            "text": "Nos canapés convertible",
+            "url": "\/"
+          }
+        }
+      },
+      "block_order": [
+        "cf34c74c-4460-48fe-9487-c5be86595f04",
+        "07008a95-59a7-4421-8463-89893e7bf550"
+      ],
+      "settings": {
+        "heading": "Des meubles\n intelligents et élégants\n qui optimisent votre\n espace de vie.",
+        "color_scheme": "background-1",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "4624a88d-b1d1-427b-b26e-d5832185ec0c": {
+      "type": "ax-image-with-text",
+      "blocks": {
+        "template--16858192576799__4624a88d-b1d1-427b-b26e-d5832185ec0c-1673257809f95b4d0a-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Leader de l’intelligence<br\/>de l’espace depuis 1980,<br\/>La Maison Convertible innove et révolutionne les intérieurs d’aujourd’hui et de demain !<\/p>",
+            "heading_size": "h3"
+          }
+        },
+        "template--16858192576799__4624a88d-b1d1-427b-b26e-d5832185ec0c-1673257809f95b4d0a-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Découvrez notre collection de canapés lits Access pour aménager une chambre d’ami, un bureau ou un premier appartement à petits prix.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16858192576799__4624a88d-b1d1-427b-b26e-d5832185ec0c-1673257809f95b4d0a-3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Découvrir la marque",
+            "button_link": "\/",
+            "style_button": "ax-link"
+          }
+        }
+      },
+      "block_order": [
+        "template--16858192576799__4624a88d-b1d1-427b-b26e-d5832185ec0c-1673257809f95b4d0a-1",
+        "template--16858192576799__4624a88d-b1d1-427b-b26e-d5832185ec0c-1673257809f95b4d0a-2",
+        "template--16858192576799__4624a88d-b1d1-427b-b26e-d5832185ec0c-1673257809f95b4d0a-3"
+      ],
+      "settings": {
+        "secondary_model": false,
+        "image": "shopify:\/\/shop_images\/tarace.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-2",
+        "mobile_content_alignment": "left",
+        "padding_top": 26,
+        "padding_bottom": 31
+      }
+    },
+    "b06714b4-e60d-4a52-8376-542919d73bd9": {
+      "type": "ax-push-mosaique",
+      "blocks": {
+        "template--17425349509407__b06714b4-e60d-4a52-8376-542919d73bd9-1673356180126380c5-2": {
+          "type": "push",
+          "settings": {
+            "subheading": "Les 20 jours",
+            "title": "Layne Velours",
+            "description": "Velour convertible",
+            "button_text": "Decouvrir maintenant",
+            "style_button": "btn btn-tertiary",
+            "url": "\/#",
+            "image": "shopify:\/\/shop_images\/Rectangle_554a6f6d-31bb-49cd-8eb5-b11bef0f9628.png",
+            "title_color": "#fefefe",
+            "description_color": "#fefefe"
+          }
+        }
+      },
+      "block_order": [
+        "template--17425349509407__b06714b4-e60d-4a52-8376-542919d73bd9-1673356180126380c5-2"
+      ],
+      "settings": {
+        "use_container": false,
+        "title": "",
+        "overlay": false
+      }
+    },
+    "4290156c-de7c-42aa-a230-e0473ecaa6ac": {
+      "type": "ax-featured-blog",
+      "settings": {
+        "heading": "<p>inspirations<br\/>& conseils<\/p>",
+        "text": "<p>Rendez-votre intérieur plus intelligent grâce aux conseils de nos experts.<\/p>",
+        "button_label": "Découvrir notre blog",
+        "button_link": "shopify:\/\/blogs\/infos",
+        "style_button": "btn btn-secondary",
+        "button_label_second": "Découvrir notre Wikimeuble",
+        "button_link_second": "\/",
+        "style_button_second": "btn btn-quaternary",
+        "blog": "infos",
+        "post_limit": 4,
+        "post_highlight": 2,
+        "show_image": true,
+        "show_date": false,
+        "show_category": true,
+        "show_author": false,
+        "one_slide": false,
+        "show_view_all": true,
+        "color_scheme": "background-1",
+        "padding_top": 144,
+        "padding_bottom": 24
+      }
+    },
+    "8fccbf20-0f83-42ae-b97e-ae403c1ebeef": {
+      "type": "ax-push-collections",
+      "blocks": {
+        "b5b5e409-b2c1-4cd3-b1fc-32b5a4d15d58": {
+          "type": "push",
+          "settings": {
+            "subheading": "Le guide d’achat",
+            "title": "Canapé lit",
+            "is_collection": false,
+            "collection": "",
+            "url": "\/#",
+            "image": "shopify:\/\/shop_images\/Image_3625b167-4e82-4442-ac4e-f6b2dba05aa2.png",
+            "subheading_color": "#ffffff",
+            "title_color": "#ffffff",
+            "link_color": "#ffffff"
+          }
+        },
+        "b3e7a720-1bc1-4c7a-b6a9-24e23aac8b35": {
+          "type": "push",
+          "settings": {
+            "subheading": "Le guide d’achat",
+            "title": "Armoire-lit",
+            "is_collection": false,
+            "collection": "",
+            "url": "\/#",
+            "image": "shopify:\/\/shop_images\/Image_1.png",
+            "subheading_color": "#ffffff",
+            "title_color": "#ffffff",
+            "link_color": "#ffffff"
+          }
+        },
+        "1a62fe4c-c435-4aca-807a-7c4cfa0df1c5": {
+          "type": "push",
+          "settings": {
+            "subheading": "Le guide d’achat",
+            "title": "Lit escamotable",
+            "is_collection": false,
+            "collection": "",
+            "url": "\/#",
+            "image": "shopify:\/\/shop_images\/Image_2.png",
+            "subheading_color": "#fefefe",
+            "title_color": "#fefefe",
+            "link_color": "#fefefe"
+          }
+        }
+      },
+      "block_order": [
+        "b5b5e409-b2c1-4cd3-b1fc-32b5a4d15d58",
+        "b3e7a720-1bc1-4c7a-b6a9-24e23aac8b35",
+        "1a62fe4c-c435-4aca-807a-7c4cfa0df1c5"
+      ],
+      "settings": {
+        "title": "",
+        "button_text": "Découvrir les meubles",
+        "button_url": "\/#",
+        "collection_to_show": 3,
+        "stack_mobile": true,
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "e2c2bb1a-d8d7-411f-9055-97584a64d013": {
+      "type": "ax-image-with-text",
+      "blocks": {
+        "template--17425349509407__e2c2bb1a-d8d7-411f-9055-97584a64d013-1673363150b778a19b-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Une question, <br\/>Un conseil ?<\/p>",
+            "heading_size": "h1"
+          }
+        },
+        "template--17425349509407__e2c2bb1a-d8d7-411f-9055-97584a64d013-1673363150b778a19b-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Nos experts se tiennent à votre disposition pour vous aider à aménager une maison plus intelligente.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "ee45d179-bfd9-40ab-94d3-4088a9f94bfe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Image_3.png"
+          }
+        },
+        "template--17425349509407__e2c2bb1a-d8d7-411f-9055-97584a64d013-1673363150b778a19b-3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Nous appeler",
+            "button_link": "\/#",
+            "style_button": "btn btn-quinary"
+          }
+        },
+        "2b45eb6f-ace3-4b86-92ba-dcce507c2cad": {
+          "type": "button",
+          "settings": {
+            "button_label": "Nous écrire",
+            "button_link": "\/#",
+            "style_button": "ax-link"
+          }
+        }
+      },
+      "block_order": [
+        "template--17425349509407__e2c2bb1a-d8d7-411f-9055-97584a64d013-1673363150b778a19b-1",
+        "template--17425349509407__e2c2bb1a-d8d7-411f-9055-97584a64d013-1673363150b778a19b-2",
+        "ee45d179-bfd9-40ab-94d3-4088a9f94bfe",
+        "template--17425349509407__e2c2bb1a-d8d7-411f-9055-97584a64d013-1673363150b778a19b-3",
+        "2b45eb6f-ace3-4b86-92ba-dcce507c2cad"
+      ],
+      "settings": {
+        "secondary_model": true,
+        "image": "shopify:\/\/shop_images\/Rectangle_1.png",
+        "height": "adapt",
+        "desktop_image_width": "large",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 26,
+        "padding_bottom": 31
+      }
+    },
+    "91d87bd1-29b5-4b1c-8a21-d32945fff2d1": {
+      "type": "ax-instagram",
+      "blocks": {
+        "template--16858192576799__91d87bd1-29b5-4b1c-8a21-d32945fff2d1-1673271892c2f12c35-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Image_2x_75bd1ef0-506e-4bc8-8de8-21fc3dcc3eeb.png",
+            "url": "https:\/\/instagram.com\/lamaisonconvertible"
+          }
+        },
+        "template--16858192576799__91d87bd1-29b5-4b1c-8a21-d32945fff2d1-1673271892c2f12c35-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_2x_cfafe4d0-db7d-42b2-b3eb-db5200f8bf3f.png",
+            "url": "https:\/\/instagram.com\/lamaisonconvertible"
+          }
+        },
+        "template--16858192576799__91d87bd1-29b5-4b1c-8a21-d32945fff2d1-1673271892c2f12c35-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_2x_2d25b272-c37a-430c-bcf2-cc965809cda8.png",
+            "url": "https:\/\/instagram.com\/lamaisonconvertible"
+          }
+        },
+        "template--16858192576799__91d87bd1-29b5-4b1c-8a21-d32945fff2d1-1673271892c2f12c35-3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_2x_0c4907ce-545a-48ad-88ec-2c897a4f371d.png",
+            "url": "https:\/\/instagram.com\/lamaisonconvertible"
+          }
+        }
+      },
+      "block_order": [
+        "template--16858192576799__91d87bd1-29b5-4b1c-8a21-d32945fff2d1-1673271892c2f12c35-0",
+        "template--16858192576799__91d87bd1-29b5-4b1c-8a21-d32945fff2d1-1673271892c2f12c35-1",
+        "template--16858192576799__91d87bd1-29b5-4b1c-8a21-d32945fff2d1-1673271892c2f12c35-2",
+        "template--16858192576799__91d87bd1-29b5-4b1c-8a21-d32945fff2d1-1673271892c2f12c35-3"
+      ],
+      "settings": {
+        "heading": "Nos meubles chez vous",
+        "text": "<p>Suivez-nous sur <strong>@lamaisonconvertible <br\/><\/strong>pour découvrir les décos de nos clients et<br\/>influenceurs partenaires.<\/p>",
+        "stack_mobile": false,
+        "autoplay": false,
+        "speed": 300,
+        "loop": false,
+        "buttons": false,
+        "pagination": false,
+        "freemode": false,
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "f2ea43de-1d3a-4529-a578-006785463517",
+    "9653b31a-17c5-4f5f-b0e4-b7e0f94f4052",
+    "1bb96000-a243-49a3-a6a6-96b1541ba3c8",
+    "4624a88d-b1d1-427b-b26e-d5832185ec0c",
+    "b06714b4-e60d-4a52-8376-542919d73bd9",
+    "4290156c-de7c-42aa-a230-e0473ecaa6ac",
+    "8fccbf20-0f83-42ae-b97e-ae403c1ebeef",
+    "e2c2bb1a-d8d7-411f-9055-97584a64d013",
+    "91d87bd1-29b5-4b1c-8a21-d32945fff2d1"
+  ]
+}

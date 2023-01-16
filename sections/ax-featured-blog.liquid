@@ -1,0 +1,353 @@
+{{ "bundle.featured-blog.css" | asset_url | stylesheet_tag }}
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
+
+<script>
+  window.assetsUrl.js.push({"featuredBlog": "{{ "bundle.featured-blog.js" | asset_url }}"});
+</script>
+
+{% capture swiper-options %}
+    {
+    "slideInView": {% if section.settings.one_slide %}1{% else %}{{ section.settings.post_limit }}{% endif %},
+    "slidesToMove": 1,
+    "loop": {% if section.settings.one_slide %}true{% else %}false{% endif %},
+    "autoplay": false,
+    "speed": 300,
+    "grabCursor": true,
+    "effect": "slide",
+    "freemode_mobile": true
+    }
+{% endcapture %}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 768px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+{%- endstyle -%}
+
+<div data-ax-section="featuredBlog">
+    <div class="blog color-{{ section.settings.color_scheme }} gradient{% if section.settings.heading == blank %} no-heading{% endif %}">
+        <div class="page-width section-{{ section.id }}-padding isolate">
+            {% if section.settings.heading != blank %}
+                <div class="ax__heading-container">
+                    {% if section.settings.heading != blank %}
+                        <h2 class="ax__heading">
+                            {{ section.settings.heading }}
+                        </h2>
+                    {% endif %}
+                    {% if section.settings.text != blank %}
+                        <div class="ax__text">
+                            {{ section.settings.text }}
+                        </div>
+                    {% endif %}
+                    {%- if section.settings.button_label != blank or section.settings.button_label_second != blank -%}
+                        <div class="ax__btn">
+                            {%- if section.settings.button_label != blank -%}
+                                <a{% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %}
+                                        class="{{ section.settings.style_button }}">
+                                    {{ section.settings.button_label | escape }}
+                                </a>
+                            {%- endif -%}
+                            {%- if section.settings.button_label_second != blank -%}
+                                <a{% if section.settings.button_link_second == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link_second }}"{% endif %}
+                                        class="{{ section.settings.style_button_second }}">
+                                    {{ section.settings.button_label_second | escape }}
+                                </a>
+                            {%- endif -%}
+                        </div>
+                    {%- endif -%}
+                </div>
+            {% endif %}
+            {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
+                <featured-blog-component class="ax-load-swiper">
+                    <div id="Swiper-{{ section.id }}" data-options='{{ swiper-options }}'
+                         class="swiper blog__posts articles-wrapper{% if section.settings.one_slide %} one_slide{% endif %}"
+                         style="--column-size: {{ section.settings.post_limit }}">
+                        <div class="swiper-wrapper">
+                            {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+                                <div id="Swiper-{{ section.id }}-{{ forloop.index }}"
+                                     class="swiper-slide blog__post article{% if forloop.index == section.settings.post_highlight %} blog__post--highlight{% endif %}">
+                                    {% render 'article-card',
+                                            blog: section.settings.blog,
+                                            article: article,
+                                            media_aspect_ratio: 1.66,
+                                            show_image: section.settings.show_image,
+                                            show_date: section.settings.show_date,
+                                            show_category: section.settings.show_category,
+                                            show_author: section.settings.show_author,
+                                            media_height: 'adapt',
+                                            media_aspect_ratio: article.image.aspect_ratio,
+                                            show_excerpt: true %}
+                                </div>
+                            {%- endfor -%}
+                        </div>
+                        <div class="blog-btn-swiper">
+                            {% if section.settings.one_slide %}
+                                <div class="swiper-button-prev">{% render 'icon-arrow' %}</div>
+                                <div class="swiper-button-next">{% render 'icon-arrow' %}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </featured-blog-component>
+            {%- else -%}
+                <div class="blog-placeholder">
+                    <div class="placeholder media media--landscape">
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    </div>
+                    <div class="blog-placeholder__content">
+                        <h2>
+                            {{ 'sections.featured_blog.onboarding_title' | t }}
+                        </h2>
+                        <p class="rte-width">
+                            {{ 'sections.featured_blog.onboarding_content' | t }}
+                        </p>
+                    </div>
+                </div>
+            {%- endif -%}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ax featured Blog",
+  "tag": "section",
+  "class": "section ax-section featured-blog",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Paramètres du texte"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Blog posts</p>",
+      "label": "t:sections.featured-blog.settings.heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p></p>",
+      "label": "Texte"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Button label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "select",
+      "id": "style_button",
+      "options": [
+        {
+          "value": "btn btn-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "btn btn-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "btn btn-tertiary",
+          "label": "Tertiary"
+        },
+        {
+          "value": "btn btn-quaternary",
+          "label": "Quaternary"
+        },
+        {
+          "value": "btn btn-quinary",
+          "label": "Quinary"
+        },
+        {
+          "value": "ax-link",
+          "label": "Link"
+        }
+      ],
+      "default": "btn btn-primary",
+      "label": "Combinaison de design"
+    },
+    {
+      "type": "text",
+      "id": "button_label_second",
+      "default": "Button label",
+      "label": "Second button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link_second",
+      "label": "Second button link"
+    },
+    {
+      "type": "select",
+      "id": "style_button_second",
+      "options": [
+        {
+          "value": "btn btn-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "btn btn-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "btn btn-tertiary",
+          "label": "Tertiary"
+        },
+        {
+          "value": "btn btn-quaternary",
+          "label": "Quaternary"
+        },
+        {
+          "value": "btn btn-quinary",
+          "label": "Quinary"
+        },
+        {
+          "value": "ax-link",
+          "label": "Link"
+        }
+      ],
+      "default": "btn btn-primary",
+      "label": "Combinaison de design pour le second bouton"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.featured-blog.settings.blog.label"
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.featured-blog.settings.post_limit.label"
+    },
+    {
+      "type": "range",
+      "id": "post_highlight",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "default": 2,
+      "label": "Mise en avant d'un l'article",
+      "info": "Choisir l'article"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_image.label",
+      "info": "t:sections.featured-blog.settings.show_image.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category",
+      "default": true,
+      "label": "Afficher la catégorie"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.featured-blog.settings.show_author.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "one_slide",
+      "default": false,
+      "label": "Afficher chaque article en pleine largeur"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_view_all.label"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ax featured Blog",
+      "category": "Axome",
+      "settings": {
+        "blog": "News"
+      }
+    }
+  ]
+}
+{% endschema %}

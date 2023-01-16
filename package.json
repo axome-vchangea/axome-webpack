@@ -1,0 +1,35 @@
+{
+  "name": "axome",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack --watch",
+    "prod": "NODE_ENV=production webpack --watch",
+    "build": "webpack"
+  },
+  "author": "Axome",
+  "devDependencies": {
+    "@shopify/theme-cart": "^3.1.0",
+    "@shopify/theme-product": "^3.1.0",
+    "@shopify/theme-product-form": "^3.1.0",
+    "autoprefixer": "^9.8.6",
+    "copy-webpack-plugin": "^5.1.2",
+    "css-loader": "^3.6.0",
+    "eslint-plugin-compat": "^4.0.0",
+    "glob": "^7.1.6",
+    "imports-loader": "^3.1.1",
+    "mini-css-extract-plugin": "^1.5.0",
+    "node-sass": "^5.0.0",
+    "postcss-loader": "^5.2.0",
+    "sass-loader": "^11.0.1",
+    "swiper": "^7.4.1",
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-shell-plugin-next": "^2.2.2"
+  },
+  "dependencies": {
+    "card-product": "git+ssh://git@bitbucket.org/axome/sp-cli-component-card-product.git",
+    "header": "git+ssh://git@bitbucket.org/axome/sp-cli-component-header.git",
+    "push-collections": "git+ssh://git@bitbucket.org/axome/sp-cli-component-push-collections.git",
+    "slider": "git+ssh://git@bitbucket.org/axome/sp-cli-component-slider.git"
+  }
+}

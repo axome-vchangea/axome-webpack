@@ -1,0 +1,342 @@
+<noscript>{{ 'bundle.push-collections.css' | asset_url | stylesheet_tag }}</noscript>
+
+<script>
+    window.assetsUrl.css.push({"pushCollections": "{{ "bundle.push-collections.css" | asset_url }}"});
+    window.assetsUrl.js.push({"pushCollections": "{{ "bundle.push-collections.js" | asset_url }}"});
+</script>
+
+<style>
+    push-collections {
+        display: block;
+        position: relative;
+    }
+</style>
+
+{% capture swiper-options %}
+    {
+    "slideInView": {{ section.settings.collection_to_show }},
+    "slidesToMove": 1,
+    "loop": false,
+    "autoplay": false,
+    "speed": 300,
+    "grabCursor": false,
+    "effect": "slide",
+    "stackMobile": {{ section.settings.stack_mobile }},
+    "freemode_mobile": true
+    }
+{% endcapture %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="gradient color-{{ section.settings.color_scheme }}{% if section.settings.stack_mobile %} push-swiper-stack{% endif %}" data-ax-section="pushCollections">
+    <div class="page-width isolate section-{{ section.id }}-padding">
+        {% if section.settings.title != blank %}
+            <h2 class="push-collections__title">
+                {{ section.settings.title | escape }}
+            </h2>
+        {% endif %}
+
+        <push-collections>
+            <div class="swiper" id="Swiper-{{ section.id }}" data-options='{{ swiper-options }}'>
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                        <div class="swiper-slide" id="Swiper-{{ section.id }}-{{ forloop.index }}">
+                            {% assign collection_url = collections[block.settings.collection.handle].url %}
+                            <a class="push-collection-wrapper" {% if block.settings.is_collection %}href="{{ collection_url }}"{% else %}href="{{ block.settings.url }}"{% endif %}>
+                                <div class="push-collection-image">
+                                    {% if block.settings.image != blank %}
+                                        <picture>
+                                            {%- if block.settings.image.width >= 330 -%}
+                                                <source media="(max-width: 330px)"
+                                                        srcset="{{ block.settings.image | image_url: width: 330, format: 'pjpg' }}">{%- endif -%}
+                                            {%- if block.settings.image.width >= 400 -%}
+                                                <source media="(max-width: 400px)"
+                                                        srcset="{{ block.settings.image | image_url: width: 400, format: 'pjpg' }}">{%- endif -%}
+                                            {%- if block.settings.image.width >= 550 -%}
+                                                <source media="(max-width: 550px)"
+                                                        srcset="{{ block.settings.image | image_url: width: 550, format: 'pjpg' }}">{%- endif -%}
+                                            {%- if block.settings.image.width >= 768 -%}
+                                                <source media="(max-width: 768px)"
+                                                        srcset="{{ block.settings.image | image_url: width: 768, format: 'pjpg' }}">{%- endif -%}
+                                            {%- if block.settings.image.width >= 1200 -%}
+                                                <source media="(max-width: 1200px)"
+                                                        srcset="{{ block.settings.image | image_url: width: 1200, format: 'pjpg' }}">{%- endif -%}
+                                            {%- if block.settings.image.width >= 1600 -%}
+                                                <source media="(max-width: 1600px)"
+                                                        srcset="{{ block.settings.image | image_url: width: 1600, format: 'pjpg' }}">{%- endif -%}
+                                            {%- if block.settings.image.width >= 2560 -%}
+                                                <source media="(max-width: 2500px)"
+                                                        srcset="{{ block.settings.image | image_url: width: 2500, format: 'pjpg' }}">{%- endif -%}
+                                            <img src="{{ block.settings.image | image_url }}"
+                                                 alt="{{ block.settings.image.alt | escape }}"
+                                                 width="{{ block.settings.image.width }}"
+                                                 height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round }}"
+                                                 loading="lazy"
+                                            >
+                                        </picture>
+                                    {% else %}
+                                        {% if collections[block.settings.collection.handle].image != blank %}
+                                            {% assign image_collection = collections[block.settings.collection.handle].image %}
+                                            <picture>
+                                                {%- if image_collection.width >= 330 -%}
+                                                    <source media="(max-width: 330px)"
+                                                            srcset="{{ image_collection | image_url: width: 330, format: 'pjpg' }}">{%- endif -%}
+                                                {%- if image_collection.width >= 400 -%}
+                                                    <source media="(max-width: 400px)"
+                                                            srcset="{{ image_collection | image_url: width: 400, format: 'pjpg' }}">{%- endif -%}
+                                                {%- if image_collection.width >= 550 -%}
+                                                    <source media="(max-width: 550px)"
+                                                            srcset="{{ image_collection | image_url: width: 550, format: 'pjpg' }}">{%- endif -%}
+                                                {%- if image_collection.width >= 768 -%}
+                                                    <source media="(max-width: 768px)"
+                                                            srcset="{{ image_collection | image_url: width: 768, format: 'pjpg' }}">{%- endif -%}
+                                                {%- if image_collection.width >= 1200 -%}
+                                                    <source media="(max-width: 1200px)"
+                                                            srcset="{{ image_collection | image_url: width: 1200, format: 'pjpg' }}">{%- endif -%}
+                                                {%- if image_collection.width >= 1600 -%}
+                                                    <source media="(max-width: 1600px)"
+                                                            srcset="{{ image_collection | image_url: width: 1600, format: 'pjpg' }}">{%- endif -%}
+                                                {%- if image_collection.width >= 2560 -%}
+                                                    <source media="(max-width: 2500px)"
+                                                            srcset="{{ image_collection | image_url: width: 2500, format: 'pjpg' }}">{%- endif -%}
+                                                <img src="{{ image_collection | image_url }}"
+                                                     alt="{{ image_collection.alt | escape }}"
+                                                     width="{{ image_collection.width }}"
+                                                     height="{{ image_collection.width | divided_by: image_collection.aspect_ratio | round }}"
+                                                     loading="lazy"
+                                                >
+                                            </picture>
+                                        {% else %}
+                                            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                                <div class="push-collection-content">
+                                    {% if block.settings.subheading != blank %}
+                                        <div class="push-collection__sub-heading"
+                                             style="color: {{ block.settings.subheading_color }}">
+                                            {{ block.settings.subheading | escape }}
+                                        </div>
+                                    {% endif %}
+                                    {% if block.settings.title != blank %}
+                                        <div class="push-collections__title"
+                                             style="color: {{ block.settings.title_color }}">
+                                            {{ block.settings.title | escape }}
+                                        </div>
+                                    {% else %}
+                                        <div class="push-collections__title"
+                                             style="color: {{ block.settings.title_color }}">
+                                            {{ collections[block.settings.collection.handle].title | escape }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="push-collection__link" style="color: {{ block.settings.link_color }}">
+                                  {{ 'general.push_collections.discover' | t }}
+                                  {% render 'icon-arrow' %}
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if section.settings.button_url != blank and section.settings.button_text != blank %}
+                  <div class="btn btn-secondary push-link">{{ section.settings.button_text }}</div>
+                {% endif %}
+            </div>
+            <div class="push-collections__btn">
+                <div class="swiper-button-prev">{% render 'icon-arrow' %}</div>
+                <div class="swiper-button-next">{% render 'icon-arrow' %}</div>
+            </div>
+        </push-collections>
+    </div>
+</div>
+
+{% schema %}
+{
+   "name":"Ax Push",
+   "tag":"section",
+   "class":"section ax-section push-collections",
+   "max_blocks":8,
+   "settings":[
+      {
+         "type":"header",
+         "content":"Paramètres globaux"
+      },
+      {
+         "type":"text",
+         "id":"title",
+         "default":"Titre",
+         "label":"Titre"
+      },
+      {
+         "type":"text",
+         "id":"button_text",
+         "default":"Texte bouton",
+         "label":"Voir tout"
+      },
+      {
+         "type":"url",
+         "id":"button_url",
+         "label":"Lien bouton"
+      },
+      {
+         "type":"range",
+         "id":"collection_to_show",
+         "min":3,
+         "max":6,
+         "step":1,
+         "default":3,
+         "label":"Nombre de push visibles"
+      },
+      {
+         "type":"checkbox",
+         "id":"stack_mobile",
+         "label":"Empiler en mobile",
+         "default":false
+      },
+      {
+          "type": "select",
+          "id": "color_scheme",
+          "options": [
+            {
+              "value": "accent-1",
+              "label": "t:sections.all.colors.accent_1.label"
+            },
+            {
+              "value": "accent-2",
+              "label": "t:sections.all.colors.accent_2.label"
+            },
+            {
+              "value": "background-1",
+              "label": "t:sections.all.colors.background_1.label"
+            },
+            {
+              "value": "background-2",
+              "label": "t:sections.all.colors.background_2.label"
+            },
+            {
+              "value": "inverse",
+              "label": "t:sections.all.colors.inverse.label"
+            }
+          ],
+          "default": "background-1",
+          "label": "t:sections.all.colors.label"
+     },
+     {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+     },
+     {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+     },
+     {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+     }
+   ],
+   "blocks":[
+      {
+         "type":"push",
+         "name":"Push",
+         "settings":[
+            {
+               "type":"text",
+               "id":"subheading",
+               "default":"Subheading",
+               "label":"Subheading"
+            },
+            {
+               "type":"text",
+               "id":"title",
+               "label":"Titre custom",
+               "info":"Si vide, on prend le titre de la collection"
+            },
+            {
+               "type":"checkbox",
+               "id":"is_collection",
+               "label":"Lien vers une collection",
+               "default":false
+            },
+            {
+               "type":"collection",
+               "id":"collection",
+               "label":"t:sections.featured-collection.settings.collection.label"
+            },
+            {
+               "type":"url",
+               "id":"url",
+               "label":"Lien"
+            },
+            {
+               "type":"image_picker",
+               "id":"image",
+               "label":"Image"
+            },
+            {
+               "type":"header",
+               "content":"Couleurs"
+            },
+            {
+               "type":"color",
+               "label":"Couleur subheading",
+               "id":"subheading_color",
+               "default":"#FFF"
+            },
+            {
+               "type":"color",
+               "label":"Couleur titre",
+               "id":"title_color",
+               "default":"#FFF"
+            },
+            {
+               "type":"color",
+               "label":"Couleur lien",
+               "id":"link_color",
+               "default":"#FFF"
+            }
+         ]
+      }
+   ],
+   "presets":[
+      {
+         "name":"Ax Push",
+         "category":"Axome",
+         "blocks":[
+            {
+               "type":"push"
+            },
+            {
+               "type":"push"
+            },
+            {
+               "type":"push"
+            }
+         ]
+      }
+   ]
+}
+{% endschema %}

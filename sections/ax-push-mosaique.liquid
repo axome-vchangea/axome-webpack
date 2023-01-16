@@ -1,0 +1,286 @@
+<noscript>{{ 'bundle.push-mosaique.css' | asset_url | stylesheet_tag }}</noscript>
+
+<script>
+    window.assetsUrl.css.push({"pushMosaique": "{{ "bundle.push-mosaique.css" | asset_url }}"});
+    window.assetsUrl.js.push({"pushMosaique": "{{ "bundle.push-mosaique.js" | asset_url }}"});
+</script>
+
+<div data-ax-section="pushMosaique">
+    <div {% if section.settings.use_container %}class="page-width--wide"{% endif %}>
+        {% if section.settings.title != blank %}
+            <h2 class="push-mosaique__title">
+                {{ section.settings.title | escape }}
+            </h2>
+        {% endif %}
+
+        {% for block in section.blocks %}
+            {% capture push %}
+                <div class="push-mosaic__item">
+                {% if block.settings.url %}<a href="{{ block.settings.url }}">{% endif %}
+                        <div class="push-mosaique__image{% if section.settings.overlay %} overlay{% endif %}">
+                            {% if block.settings.image != blank %}
+                                <picture>
+                                    {%- if block.settings.image.width >= 330 -%}
+                                        <source media="(max-width: 330px)"
+                                                srcset="{{ block.settings.image | image_url: width: 330, height: 460, format: 'pjpg' }}">{%- endif -%}
+                                    {%- if block.settings.image.width >= 400 -%}
+                                        <source media="(max-width: 400px)"
+                                                srcset="{{ block.settings.image | image_url: width: 400, height: 560, format: 'pjpg' }}">{%- endif -%}
+                                    {%- if block.settings.image.width >= 550 -%}
+                                        <source media="(max-width: 550px)"
+                                                srcset="{{ block.settings.image | image_url: width: 550, height: 770, format: 'pjpg' }}">{%- endif -%}
+                                    {%- if block.settings.image.width >= 768 -%}
+                                        <source media="(max-width: 768px)"
+                                                srcset="{{ block.settings.image | image_url: width: 768, format: 'pjpg' }}">{%- endif -%}
+                                    {%- if block.settings.image.width >= 1200 -%}
+                                        <source media="(max-width: 1200px)"
+                                                srcset="{{ block.settings.image | image_url: width: 1200, format: 'pjpg' }}">{%- endif -%}
+                                    {%- if block.settings.image.width >= 1600 -%}
+                                        <source media="(max-width: 1600px)"
+                                                srcset="{{ block.settings.image | image_url: width: 1600, format: 'pjpg' }}">{%- endif -%}
+                                    {%- if block.settings.image.width >= 2560 -%}
+                                        <source media="(max-width: 2500px)"
+                                                srcset="{{ block.settings.image | image_url: width: 2500, format: 'pjpg' }}">{%- endif -%}
+                                    <img src="{{ block.settings.image | image_url }}"
+                                         alt="{{ block.settings.image.alt | escape }}"
+                                         width="{{ block.settings.image.width }}"
+                                         height="{{ block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round }}"
+                                         loading="lazy"
+                                    >
+                                </picture>
+                            {% else %}
+                                {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                            {% endif %}
+                        </div>
+                        <div class="push-mosaique__content">
+                            {% if block.settings.subheading != blank %}
+                                <div class="push-subheading">
+                                    <span>{{ block.settings.subheading | escape }}</span>
+                                </div>
+                            {% endif %}
+                            {% if block.settings.title != blank %}
+                                <div class="push-title"
+                                     style="color: {{ block.settings.title_color }}">
+                                    {{ block.settings.title | escape }}
+                                </div>
+                            {% endif %}
+                            {% if block.settings.description != blank %}
+                                <div class="push-description"
+                                     style="color: {{ block.settings.description_color }}">
+                                    {{ block.settings.description | escape }}
+                                </div>
+                            {% endif %}
+                            {% if block.settings.url != blank and block.settings.button_text != blank %}
+                                <div class="{{ block.settings.style_button }}">
+                                    {{ block.settings.button_text | escape }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% if block.settings.url %}</a>{% endif %}
+                </div>
+            {% endcapture %}
+
+            {%- liquid
+                if forloop.index == 1
+                    assign push_1 = push
+                elsif forloop.index == 2
+                    assign push_2 = push
+                elsif forloop.index == 3
+                    assign push_3 = push
+                elsif forloop.index == 4
+                    assign push_4 = push
+                elsif forloop.index == 5
+                    assign push_5 = push
+                elsif forloop.index == 6
+                    assign push_6 = push
+                endif
+            -%}
+        {% endfor %}
+
+        <div class="push-mosaique__wrapper">
+            {% case section.blocks.size %}
+                {% when 1 %}
+                    <div class="push-mosaic__column">
+                        {{ push_1 }}
+                    </div>
+                {% when 2 %}
+                    <div class="push-mosaic__column">
+                        {{ push_1 }}
+                        {{ push_2 }}
+                    </div>
+                {% when 3 %}
+                    <div class="push-mosaic__column">
+                        {{ push_1 }}
+                        {{ push_2 }}
+                        {{ push_3 }}
+                    </div>
+                {% when 4 %}
+                    <div class="push-mosaic__column">
+                        {{ push_1 }}
+                        {{ push_2 }}
+                        {{ push_3 }}
+                    </div>
+                    <div class="push-mosaic__column">
+                        {{ push_4 }}
+                    </div>
+                {% when 5 %}
+                    <div class="push-mosaic__column">
+                        {{ push_1 }}
+                        {{ push_2 }}
+                        {{ push_3 }}
+                    </div>
+                    <div class="push-mosaic__column">
+                        {{ push_4 }}
+                        {{ push_5 }}
+                    </div>
+                {% when 6 %}
+                    <div class="push-mosaic__column">
+                        {{ push_1 }}
+                        {{ push_2 }}
+                        {{ push_3 }}
+                    </div>
+                    <div class="push-mosaic__column">
+                        {{ push_4 }}
+                        {{ push_5 }}
+                        {{ push_6 }}
+                    </div>
+            {% endcase %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+   "name":"Ax Push Mosaique",
+   "tag":"section",
+   "class":"section ax-section push-mosaique",
+   "max_blocks":6,
+   "settings":[
+      {
+         "type":"header",
+         "content":"Paramètres globaux"
+      },
+      {
+         "type":"checkbox",
+         "id":"use_container",
+         "label":"Ajouter un container",
+         "default":false
+      },
+      {
+         "type":"text",
+         "id":"title",
+         "default":"Titre",
+         "label":"Titre"
+      },
+      {
+         "type":"checkbox",
+         "id":"overlay",
+         "label":"Ajouter un overlay",
+         "default":false
+      }
+   ],
+   "blocks":[
+      {
+         "type":"push",
+         "name":"Push",
+         "settings":[
+            {
+               "type":"text",
+               "id":"subheading",
+               "label":"Subheading"
+            },
+            {
+               "type":"text",
+               "id":"title",
+               "label":"Titre"
+            },
+            {
+               "type":"textarea",
+               "label":"Description",
+               "id":"description"
+            },
+            {
+               "type":"text",
+               "label":"Bouton",
+               "id":"button_text"
+            },
+            {
+              "type": "select",
+              "id": "style_button",
+              "options": [
+                {
+                  "value": "btn btn-primary",
+                  "label": "Primary"
+                },
+                {
+                  "value": "btn btn-secondary",
+                  "label": "Secondary"
+                },
+                {
+                  "value": "btn btn-tertiary",
+                  "label": "Tertiary"
+                },
+                {
+                  "value": "btn btn-quaternary",
+                  "label": "Quaternary"
+                },
+                {
+                  "value": "btn btn-quinary",
+                  "label": "Quinary"
+                },
+                {
+                  "value": "ax-link",
+                  "label": "Link"
+                }
+              ],
+              "default": "btn btn-primary",
+              "label": "Combinaison de design"
+            },
+            {
+               "type":"url",
+               "label":"Lien",
+               "id":"url"
+            },
+            {
+               "type":"image_picker",
+               "id":"image",
+               "label":"Image"
+            },
+            {
+               "type":"header",
+               "content":"Couleurs"
+            },
+            {
+               "type":"color",
+               "label":"Couleur titre",
+               "id":"title_color",
+               "default":"#FFF"
+            },
+            {
+               "type":"color",
+               "label":"Couleur description",
+               "id":"description_color",
+               "default":"#FFF"
+            }
+         ]
+      }
+   ],
+   "presets":[
+      {
+         "name":"Ax Push Mosaique",
+         "category":"Axome",
+         "blocks":[
+            {
+               "type":"push"
+            },
+            {
+               "type":"push"
+            },
+            {
+               "type":"push"
+            }
+         ]
+      }
+   ]
+}
+{% endschema %}

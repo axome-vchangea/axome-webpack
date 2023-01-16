@@ -1,0 +1,250 @@
+<noscript>{{ 'bundle.reassurances.css' | asset_url | stylesheet_tag }}</noscript>
+
+<script>
+  window.assetsUrl.css.push({"reassurances": "{{ "bundle.reassurances.css" | asset_url }}"});
+  window.assetsUrl.js.push({"reassurances": "{{ "bundle.reassurances.js" | asset_url }}"});
+</script>
+
+{% capture swiper-options %}
+    {
+    "slideInView": 1.32,
+    "slidesToMove": 1,
+    "loop": {% if section.settings.loop %}true{% else %}false{% endif %},
+    "autoplay": {% if section.settings.autoplay %}true{% else %}false{% endif %},
+    "speed": {{ section.settings.speed }},
+    "grabCursor": false,
+    "effect": "slide",
+    "blockLength": {{ section.blocks.size }},
+    "stackMobile": {{ section.settings.stack_mobile }},
+    "freemode_mobile": {{ section.settings.freemode }}
+    }
+{% endcapture %}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.51 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.51 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 768px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+{%- endstyle -%}
+
+<div class="page-width color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding"
+     data-ax-section="reassurances"
+     style="color:{{ section.settings.text_color }};">
+    <reassurances-component class="ax-load-swiper">
+        <div class="swiper reassurances-content{% if section.settings.stack_mobile %} stack-mobile{% endif %}"
+             id="Swiper-{{ section.id }}" data-options='{{ swiper-options }}'>
+            <div class="swiper-wrapper" style="--column-size: {{ section.blocks.size }}">
+                {% for block in section.blocks %}
+                    <div class="swiper-slide reassurance">
+                        {%- render 'icons-reassurances', icon: block.settings.icon -%}
+                    {% if block.settings.url %}<a href="{{ block.settings.url }}">{% endif %}
+                            {% if block.settings.title != blank %}
+                                <span class="reassurance-title">{{ block.settings.title }}</span>
+                            {% endif %}
+                            {% if block.settings.url %}</a>{% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if section.settings.buttons %}
+                <div class="swiper-button-prev">{% render 'icon-arrow' %}</div>
+                <div class="swiper-button-next">{% render 'icon-arrow' %}</div>
+            {% endif %}
+
+            {% if section.settings.pagination %}
+                <div class="swiper-pagination"></div>
+            {% endif %}
+        </div>
+    </reassurances-component>
+</div>
+
+{% schema %}
+{
+  "name": "Reassurances",
+  "tag": "section",
+  "class": "section ax-section reassurances",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Paramètres globaux"
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_mobile",
+      "label": "Empiler en mobile",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Paramètres du slider mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Vitesse de transition",
+      "default": 300,
+      "step": 100,
+      "min": 100,
+      "max": 3000
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Slider infini",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "buttons",
+      "label": "Afficher les boutons",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "pagination",
+      "label": "Afficher la pagination",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "freemode",
+      "label": "Freemode",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reassurance",
+      "name": "logo de reassurance",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "delivery",
+              "label": "Delivery"
+            },
+            {
+              "value": "delivery-premium",
+              "label": "Delivery premium"
+            },
+            {
+              "value": "payment",
+              "label": "Payment"
+            },
+            {
+              "value": "back",
+              "label": "Back"
+            }
+          ],
+          "default": "delivery"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Titre"
+        },
+        {
+          "id": "url",
+          "type": "url",
+          "label": "Lien"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reassurances",
+      "category": "Axome",
+      "blocks": [
+        {
+          "type": "reassurance"
+        },
+        {
+          "type": "reassurance"
+        },
+        {
+          "type": "reassurance"
+        },
+        {
+          "type": "reassurance"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,7 @@
+assets/bundle.**.css
+assets/bundle.**.js
+styles/
+js/
+package.json
+postcss.config.js
+webpack.config.js

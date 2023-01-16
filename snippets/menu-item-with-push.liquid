@@ -1,0 +1,63 @@
+{% assign counterSizeImage = 0 %}
+
+{% capture megamenu_push %}
+    {%- if section.settings.image_first != blank or section.settings.image_second != blank -%}
+        <li class="mega-menu__item mega-menu__content__end">
+            {%- if section.settings.image_second != blank -%}
+                <div class="mega-menu__content__push">
+                    {% assign altImagePush = section.settings.text_first_image | default: menuItemTitle %}
+                    <a{% if section.settings.url_first_image == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.url_first_image }}"{% endif %}>
+                        <div class="media media--transparent media--square">{{ section.settings.image_first | image_url: width: 200, height: 258 | image_tag: widths: '200, 300, 400', height: 280, loading: 'lazy', alt: altImagePush }}</div>
+                        {%- if section.settings.text_first_image != blank -%}
+                            <p>{{ section.settings.text_first_image | escape }}</p>
+                        {%- endif -%}
+                    </a>
+                </div>
+                {% assign counterSizeImage = counterSizeImage | plus: 1 %}
+            {%- endif -%}
+            {%- if section.settings.image_second != blank -%}
+                <div class="mega-menu__content__push">
+                    {% assign altImagePush = section.settings.text_second_image | default: menuItemTitle %}
+                    <a{% if section.settings.url_second_image == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.url_second_image }}"{% endif %}{% if block.settings.text_second_image != blank %} class="with-text"{% endif %}>
+                        <div class="media media--transparent media--square">{{ section.settings.image_second | image_url: width: 200, height: 258 | image_tag: widths: '200, 300, 400', height: 280, loading: 'lazy', alt: altImagePush }}</div>
+                        {%- if section.settings.text_second_image != blank -%}
+                            <p>{{ section.settings.text_second_image | escape }}</p>
+                        {%- endif -%}
+                    </a>
+                </div>
+                {% assign counterSizeImage = counterSizeImage | plus: 1 %}
+            {%- endif -%}
+        </li>
+    {%- endif -%}
+{% endcapture %}
+{% style %}
+    .mega-menu__list {
+        grid-template-columns: repeat({{ link.links.size }}, minmax(0, 1fr)) 2fr;
+    }
+{% endstyle %}
+<ul class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}" role="list">
+    {{ link.links.size | json }}
+    {%- for childlink in link.links -%}
+        <li>
+            <a href="{{ childlink.url }}"
+               class="mega-menu__link mega-menu__link--level-2 link"{% if childlink.current %} aria-current="page"{% endif %}>
+                {{ childlink.title | escape }}
+            </a>
+            {%- if childlink.links != blank -%}
+                <ul class="list-unstyled" role="list">
+                    {%- for grandchildlink in childlink.links -%}
+                        <li>
+                            <a href="{{ grandchildlink.url }}"
+                               class="mega-menu__link mega-menu__link--level-3 link"{% if grandchildlink.current %} aria-current="page"{% endif %}>
+                                {{ grandchildlink.title | escape }}
+                            </a>
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            {%- endif -%}
+        </li>
+    {%- endfor -%}
+    {%- if megamenu_push and megamenu_push != blank -%}
+        {{ megamenu_push }}
+    {%- endif -%}
+</ul>
