@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(e=>{document.querySelectorAll("span[data-obflink]").forEach((function(e){e.addEventListener("click",(o=>{const n=e.dataset.obflink;o.ctrlKey?window.open(decodeURIComponent(escape(window.atob(n))),"_blank").focus():document.location.href=decodeURIComponent(escape(window.atob(n)))}))}))}));
