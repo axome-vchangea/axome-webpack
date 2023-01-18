@@ -1,0 +1,1 @@
+import "Styles/sections/image-with-text.scss";

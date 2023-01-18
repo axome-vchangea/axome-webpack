@@ -1,7 +1,9 @@
 assets/bundle.**.css
 assets/bundle.**.js
-styles/
-js/
+_dev/
+.eslintrc
+.vscode
+.idea
 package.json
 postcss.config.js
 webpack.config.js

@@ -1,0 +1,39 @@
+.field__input,
+.select__select,
+.customer .field input,
+.customer select {
+	height: 4.4rem;
+	font-size: $font-size-extra-small;
+	caret-color: $primary;
+
+	&::placeholder {
+		color: $primary;
+		font-size: $font-size-extra-small;
+	}
+}
+
+.field__label,
+.customer .field label {
+	top: 50%;
+	transform: translateY(-50%);
+	color: $primary;
+	font-size: $font-size-extra-small;
+}
+
+.field__input:focus ~ .field__label,
+.field__input:not(:placeholder-shown) ~ .field__label,
+.field__input:-webkit-autofill ~ .field__label,
+.customer .field input:focus ~ label,
+.customer .field input:not(:placeholder-shown) ~ label,
+.customer .field input:-webkit-autofill ~ label {
+	transform: none;
+}
+
+
+input {
+	@include media-breakpoint-down(sm) {
+		@supports (-webkit-touch-callout: none) {
+			font-size: 16px !important; //fix zoom iphone
+		}
+	}
+}

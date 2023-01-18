@@ -9,7 +9,7 @@ const stats = mode === 'development' ? 'errors-warnings' : { children: false };
 module.exports = {
   mode: mode,
   devtool: devtool,
-  entry: glob.sync('./js/**/*.js').reduce((acc, path) => {
+  entry: glob.sync('./_dev/js/**/*.js').reduce((acc, path) => {
     const entry = path.replace(/^.*[\\\/]/, '').replace('.js','');
     acc[entry] = path;
     return acc;
@@ -20,10 +20,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      Styles: path.resolve(__dirname, 'styles/'),
-      Helpers: path.resolve(__dirname, 'styles/helpers/'),
-      Components: path.resolve(__dirname, 'styles/components/'),
-      Sections: path.resolve(__dirname, 'styles/sections/')
+      Styles: path.resolve(__dirname, '_dev/styles/'),
+      Helpers: path.resolve(__dirname, '_dev/styles/helpers/'),
+      Components: path.resolve(__dirname, '_dev/styles/components/'),
+      Sections: path.resolve(__dirname, '_dev/styles/sections/')
     }
   },
   plugins: [

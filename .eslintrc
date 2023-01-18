@@ -1,0 +1,11 @@
+{
+  "parserOptions": {
+    "ecmasVersion": 2020
+  },
+  "extends": [
+    "plugin:compat/recommended"
+  ],
+  "env": {
+    "browser": true
+  }
+}

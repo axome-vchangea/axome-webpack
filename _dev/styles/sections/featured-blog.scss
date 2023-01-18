@@ -1,0 +1,145 @@
+@import 'Helpers/_helpers';
+
+.ax-section.featured-blog {
+	margin-top: 0;
+
+	.ax__heading-container {
+		text-align: center;
+		gap: 2.4rem;
+		@include media-breakpoint-up(xl) {
+			margin-bottom: 7.2rem;
+		}
+	}
+
+	.ax__heading {
+		font-weight: $weight-bold;
+		letter-spacing: $letter-spacing-1;
+		line-height: 0.8em;
+		font-size: $font-size-h4;
+
+		@include media-breakpoint-up(xl) {
+			font-size: calc(var(--font-heading-scale) * 12.5rem);
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+
+	.ax__text {
+		color: $gray-600;
+
+		@include media-breakpoint-down(sm) {
+			max-width: 70%;
+			margin: auto;
+		}
+	}
+
+	.ax__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1.2rem;
+	}
+
+	.ax__heading,
+	.ax__btn,
+	.ax__text {
+		width: 100%;
+
+		p {
+			margin: 0;
+		}
+	}
+
+	.blog__posts {
+		border-width: 1px;
+		border-style: solid;
+		border-color: $border-color;
+		@include media-breakpoint-down(lg) {
+			overflow: visible;
+		}
+
+		.blog__post {
+			&:last-child {
+				.article-card-wrapper {
+					border-right-color: transparent;
+				}
+			}
+
+			&.blog__post--highlight {
+				background: $accent;
+			}
+
+			.article-card-wrapper {
+				position: relative;
+				display: block;
+				overflow: hidden;
+				padding: 2.4rem 2.7rem;
+				border-right: 1px solid $border-color;
+				text-decoration: none;
+				color: $gray-600;
+
+				@include media-breakpoint-down(sm) {
+					padding: 1.45rem 1.2rem;
+				}
+			}
+		}
+
+		&.one_slide {
+			.article-card {
+				@include media-breakpoint-up(xl) {
+					display: flex;
+					align-items: center;
+
+					> div {
+						width: 50%;
+					}
+				}
+			}
+		}
+
+		.blog__view-all {
+			margin: 0 auto;
+		}
+	}
+
+	swiper-component {
+		.swiper {
+			@include media-breakpoint-down(sm) {
+				overflow: visible;
+			}
+		}
+
+		.blog-btn-swiper {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 40px;
+
+			@include media-breakpoint-up(xl) {
+				justify-content: space-between;
+			}
+			@include media-breakpoint-down(md) {
+				margin-top: 30px;
+			}
+
+			.swiper-button-prev,
+			.swiper-button-next {
+				position: initial;
+				margin-top: 0;
+				@include media-breakpoint-down(lg) {
+					display: none;
+				}
+
+				svg * {
+					stroke: $black;
+				}
+			}
+
+			.blog__button {
+				margin-top: 0;
+			}
+		}
+	}
+}

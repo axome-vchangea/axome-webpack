@@ -1,0 +1,59 @@
+@import 'Helpers/_helpers';
+
+//Swiper
+.ax-load-swiper {
+	.swiper-wrapper {
+		display: flex;
+		gap: 0;
+		@include media-breakpoint-up(lg) {
+			gap: 0;
+		}
+
+		.swiper-slide {
+			flex-basis: 75%;
+			@include media-breakpoint-only(md) {
+				flex-basis: calc(100% / 2.35);
+			}
+			@include media-breakpoint-only(lg) {
+				flex-basis: calc(100% / 2.35);
+			}
+			@include media-breakpoint-up(lg) {
+				flex-basis: calc(100% / var(--column-size));
+			}
+		}
+	}
+}
+
+.ax-section {
+	&.reassurances {
+		@include media-breakpoint-down(lg) {
+			overflow: hidden;
+		}
+
+		.ax-load-swiper {
+			.swiper-wrapper {
+				.swiper-slide {
+					@include media-breakpoint-up(lg) {
+						flex-basis: auto;
+					}
+				}
+			}
+		}
+	}
+
+	&.instagram,
+	&.featured-blog {
+		@include media-breakpoint-down(lg) {
+			overflow: hidden;
+		}
+	}
+
+	&.featured-collections {
+		overflow: hidden;
+
+		.swiper {
+			overflow: visible;
+		}
+	}
+
+}

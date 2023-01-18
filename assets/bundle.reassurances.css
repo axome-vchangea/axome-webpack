@@ -1,2 +1,35 @@
-.reassurances{border-top:1px solid rgba(17,17,17,0.1)}.reassurances .page-width{--page-width: 129.3rem}.reassurances .reassurances-content{overflow:visible}@media (min-width: 992px){.reassurances .reassurances-content .swiper-wrapper{justify-content:space-between}}.reassurances .reassurances-content .reassurance{display:flex;align-items:center;-moz-column-gap:1.2rem;column-gap:1.2rem}@media (min-width: 992px){.reassurances .reassurances-content .reassurance{width:auto !important}}.reassurances .reassurances-content .reassurance svg{width:2rem;height:2rem}.reassurances .reassurances-content .reassurance .reassurance-title{line-height:1.4em;color:#5A5A5A}@media (min-width: 768px){.reassurances .reassurances-content .swiper-button-next,.reassurances .reassurances-content .swiper-button-prev{display:none}}@media (max-width: 991.98px){.reassurances .reassurances-content.stack-mobile .swiper-wrapper{flex-wrap:wrap;transform:none}.reassurances .reassurances-content.stack-mobile .swiper-wrapper .swiper-slide{width:50% !important;margin:20px 0}}
+.reassurances {
+  border-top: 1px solid rgba(17, 17, 17, 0.1); }
+  .reassurances .page-width {
+    --page-width: 129.3rem; }
+  .reassurances .reassurances-content {
+    overflow: visible; }
+    @media (min-width: 992px) {
+      .reassurances .reassurances-content .swiper-wrapper {
+        justify-content: space-between; } }
+    .reassurances .reassurances-content .reassurance {
+      display: flex;
+      align-items: center;
+      -moz-column-gap: 1.2rem;
+           column-gap: 1.2rem; }
+      @media (min-width: 992px) {
+        .reassurances .reassurances-content .reassurance {
+          width: auto !important; } }
+      .reassurances .reassurances-content .reassurance svg {
+        width: 2rem;
+        height: 2rem; }
+      .reassurances .reassurances-content .reassurance .reassurance-title {
+        line-height: 1.4em;
+        color: #5A5A5A; }
+    @media (min-width: 768px) {
+      .reassurances .reassurances-content .swiper-button-next,
+      .reassurances .reassurances-content .swiper-button-prev {
+        display: none; } }
+    @media (max-width: 991.98px) {
+      .reassurances .reassurances-content.stack-mobile .swiper-wrapper {
+        flex-wrap: wrap;
+        transform: none; }
+        .reassurances .reassurances-content.stack-mobile .swiper-wrapper .swiper-slide {
+          width: 50% !important;
+          margin: 20px 0; } }
 

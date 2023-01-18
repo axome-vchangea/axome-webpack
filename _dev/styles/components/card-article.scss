@@ -1,0 +1,48 @@
+.article-miniature {
+	cursor: pointer;
+
+	.card__information {
+		padding: 1.5rem 0 0 !important;
+	}
+
+	.card__content {
+		.card__heading {
+			font-size: $font-size-large;
+			font-weight: $weight-medium;
+			line-height: $line-height-small;
+			margin-bottom: 1.5rem;
+			letter-spacing: 0;
+			text-transform: none;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+
+			a::after {
+				content: none !important;
+			}
+		}
+
+		.article-card__info--category {
+			font-size: $font-size-extra-super-small;
+			line-height: 1em;
+			margin-bottom: .6rem;
+			text-transform: uppercase;
+		}
+
+		.article-card__info {
+			font-size: $font-size-extra-small;
+			line-height: 18px;
+			margin-bottom: 10px;
+		}
+
+		.article-card__excerpt {
+			font-size: $font-size-extra-small;
+			line-height: $line-height-base;
+			margin-bottom: 0;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+	}
+}

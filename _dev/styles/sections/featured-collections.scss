@@ -1,0 +1,134 @@
+@import 'Helpers/_helpers';
+
+.featured-collections {
+	featured-collection {
+		display: block;
+		position: relative;
+	}
+
+	.ax__heading-container {
+		text-align: center;
+		justify-content: center;
+		margin-bottom: 3.1rem;
+
+		.ax__subheading {
+			font-size: $font-size-large;
+			line-height: $line-height-small;
+		}
+	}
+
+	.collections-multiple {
+		.featured-collections__headings_container {
+			.featured-collections__heading {
+				cursor: pointer;
+
+				&:hover,
+				&.visible {
+					color: $primary;
+				}
+			}
+		}
+	}
+
+	.featured-collections__headings_container {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 4.8rem;
+		margin-bottom: 5.5rem;
+		@include media-breakpoint-down(sm) {
+			margin-bottom: 4.8rem;
+			gap: 2.4rem;
+		}
+
+		.featured-collections__heading {
+			position: relative;
+			display: inline-block;
+			margin: 0;
+			text-align: center;
+			font-weight: $weight-medium;
+			line-height: 0.98em;
+			letter-spacing: $letter-spacing-1;
+			color: $gray-700;
+			transition: $transition-base;
+			text-transform: none;
+
+			@include media-breakpoint-down(sm) {
+				font-size: $font-size-extra-large;
+				line-height: $line-height-small;
+			}
+		}
+	}
+
+
+	featured-collection {
+		display: block;
+		position: relative;
+		height: 0;
+		opacity: 0;
+		visibility: hidden;
+
+		&.visible {
+			height: auto;
+			opacity: 1;
+			visibility: visible;
+			transition: all 0.5s cubic-bezier(.215, .61, .355, 1);
+
+			.swiper-arrows {
+				opacity: 1;
+				pointer-events: initial;
+			}
+		}
+
+		.swiper {
+			@include media-breakpoint-down(sm) {
+				overflow: visible;
+			}
+
+			.swiper-wrapper {
+				&.has-btn {
+					margin-bottom: 4rem;
+					@include media-breakpoint-down(sm) {
+						margin-bottom: 3rem;
+					}
+				}
+
+				.swiper-slide:first-child {
+					.product-miniature {
+						.card--card, .card--standard .card__inner {
+							border: var(--border-width) solid $border-color;
+						}
+					}
+				}
+			}
+		}
+
+		.swiper-arrows {
+			display: flex;
+			justify-content: space-between;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -37%);
+			width: calc(100% + 32px);
+			z-index: 1;
+			opacity: 0;
+			pointer-events: none;
+
+			.swiper-button-prev,
+			.swiper-button-next {
+				position: initial;
+				margin-top: 0;
+
+				@include media-breakpoint-down(md) {
+					display: none;
+				}
+
+				svg * {
+					stroke: $black;
+				}
+			}
+		}
+	}
+}

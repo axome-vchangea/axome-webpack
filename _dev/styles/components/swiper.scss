@@ -1,0 +1,41 @@
+.swiper-pagination {
+	.swiper-pagination-bullet {
+		background: $primary;
+	}
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	color: $primary;
+	margin: 0;
+	padding: 0;
+	width: auto;
+
+	svg {
+		width: 8px;
+	}
+
+	&::after {
+		content: '';
+	}
+}
+
+.swiper-button-prev {
+	transform: rotate(180deg);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	transition: $transition-base;
+
+	&.swiper-button-disabled {
+		opacity: 0;
+	}
+
+	&.with-background {
+		border-radius: 50%;
+		background-color: $gray-100;
+		width: 3.4rem;
+		height: 3.4rem;
+	}
+}

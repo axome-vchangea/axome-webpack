@@ -1,0 +1,24 @@
+img {
+    width: 100%;
+    height: 100%;
+}
+
+span[data-obflink] {
+	cursor: pointer;
+}
+
+//Header Section
+.ax__heading-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	text-align: left;
+	margin-bottom: 2.4rem;
+	@include media-breakpoint-up(md) {
+		margin-bottom: 4.8rem;
+	}
+
+	.ax__heading {
+		margin: 0;
+	}
+}

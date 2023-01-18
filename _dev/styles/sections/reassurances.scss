@@ -1,0 +1,58 @@
+@import 'Helpers/_helpers';
+
+.reassurances {
+	border-top: 1px solid $border-color;
+	.page-width {
+		--page-width: 129.3rem;
+	}
+
+	.reassurances-content {
+		overflow: visible;
+
+		.swiper-wrapper {
+			@include media-breakpoint-up(lg) {
+				justify-content: space-between;
+			}
+		}
+
+		.reassurance {
+			display: flex;
+			align-items: center;
+			column-gap: 1.2rem;
+			@include media-breakpoint-up(lg) {
+				width: auto !important;
+			}
+
+			svg {
+				width: 2rem;
+				height: 2rem;
+			}
+
+			.reassurance-title {
+				line-height: $line-height-base;
+				color: $gray-700;
+			}
+		}
+
+		.swiper-button-next,
+		.swiper-button-prev {
+			@include media-breakpoint-up(md) {
+				display: none;
+			}
+		}
+
+		@include media-breakpoint-down(md) {
+			&.stack-mobile {
+				.swiper-wrapper {
+					flex-wrap: wrap;
+					transform: none;
+
+					.swiper-slide {
+						width: 50% !important;
+						margin: 20px 0;
+					}
+				}
+			}
+		}
+	}
+}

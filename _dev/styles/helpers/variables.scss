@@ -1,0 +1,81 @@
+//Typography
+$font-body: var(--font-body-family);
+$font-heading: var(--font-body-family);
+
+//Font Weight
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-bold: 700;
+
+//Line height
+$line-height-small: 1.1em;
+$line-height-base: 1.4em;
+
+//Letter spacing
+$letter-spacing: initial;
+$letter-spacing-1: -0.03em;
+
+//Font Size
+$font-size-extra-mega-large: calc(var(--font-body-scale) * 2rem); //20px
+$font-size-extra-large: calc(var(--font-body-scale) * 1.8rem); //18px
+$font-size-large: calc(var(--font-body-scale) * 1.5rem); //15px
+$font-size-base: calc(var(--font-body-scale) * 1.3rem); //13px
+$font-size-small: calc(var(--font-body-scale) * 1.2rem); //12px
+$font-size-extra-small: calc(var(--font-body-scale) * 1.1rem); //11px
+$font-size-extra-super-small: calc(var(--font-body-scale) * 1rem); //10px
+
+$font-size-h1: calc(var(--font-heading-scale) * 4.5rem); //45px
+$font-size-h2: calc(var(--font-heading-scale) * 4rem); //40px
+$font-size-h3: calc(var(--font-heading-scale) * 3.5rem); //35px
+$font-size-h4: calc(var(--font-heading-scale) * 2.5rem); //25px
+$font-size-h5: calc(var(--font-heading-scale) * 2.2rem); //22px
+$font-size-h6: calc(var(--font-heading-scale) * 2rem); //20px
+
+//Colors
+$gray-100: #FEFEFE;
+$gray-200: #EAE6E3;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #9C9996;
+$gray-600: #858585;
+$gray-700: #5A5A5A;
+$gray-800: #333333;
+$gray-900: #111111;
+
+$blue:    #007bff;
+$purple:  #6f42c1;
+$pink:    #C5205B;
+$red:     #e92426;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #219653;
+
+$primary:        var(--color-primary); //#111111
+$secondary:      var(--color-secondary); //#C5205B
+$accent: 		#F0EBE8;
+$white:         #fff;
+$black:         #000;
+
+$border-color: rgba(17, 17, 17, 0.1);
+$border-radius-input: var(--inputs-radius); //21px
+$border-radius-primary: 4px;
+$border-radius-secondary: 5px;
+
+//Components
+$transition-base:  all .2s ease-in-out;
+
+//Grid
+$grid-columns:         12;
+$grid-gutter-width:    var(--grid-desktop-horizontal-spacing);
+
+//Box Shadow
+$box-shadow: none;
+
+//Media queries
+$grid-breakpoints: (
+		xs: 0,
+		sm: 576px,
+		md: 768px,
+		lg: 992px,
+		xl: 1200px
+);

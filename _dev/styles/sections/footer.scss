@@ -1,0 +1,392 @@
+@import 'Helpers/_helpers';
+
+#shopify-section-footer {
+	overflow: hidden;
+
+	.footer {
+		.footer__content-top {
+			--page-width: 129.3rem;
+			position: relative;
+			padding-bottom: 0;
+
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				transform: translateX(-50%);
+				width: 100vw;
+				border-bottom: 1px solid $border-color;
+			}
+		}
+
+		.footer__content-bottom {
+			border-top: none;
+			@include media-breakpoint-up(lg) {
+				padding-top: 2rem;
+			}
+		}
+	}
+
+	.footer__content-bottom-wrapper {
+		@include media-breakpoint-down(lg) {
+			flex-wrap: wrap;
+		}
+
+		> * {
+			flex: 1 0 100%;
+			@include media-breakpoint-up(lg) {
+				flex: 1;
+			}
+		}
+	}
+
+	.footer__trustpilot {
+		@include media-breakpoint-down(lg) {
+			position: relative;
+			padding: 0 0 2.1rem;
+
+			&::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 26px;
+				background: url('https://cdn.shopify.com/s/files/1/0674/8454/9407/files/fake_truspilot.png?v=1673021551');
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+		}
+	}
+
+	.footer__column--info {
+		@include media-breakpoint-down(lg) {
+			position: relative;
+			padding: 2.1rem 0;
+
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 50%;
+				top: 0;
+				transform: translateX(-50%);
+				width: 100vw;
+				border-bottom: 1px solid $border-color;
+			}
+
+			.footer__payment {
+				svg {
+					width: 3rem;
+				}
+			}
+		}
+
+		.footer__payment {
+			svg {
+				width: 3.2rem;
+
+				@include media-breakpoint-down(lg) {
+					width: 3rem;
+				}
+			}
+		}
+	}
+
+	.footer__list-social-heading {
+		margin-right: 2rem;
+		@include media-breakpoint-only(lg) {
+			display: none;
+		}
+
+		@include media-breakpoint-down(xs) {
+			margin-right: 1rem;
+		}
+
+		@media screen and (max-width: 374px) {
+			display: none;
+		}
+	}
+
+	.footer__list-social {
+		align-items: center;
+		@include media-breakpoint-down(lg) {
+			justify-content: center;
+			position: relative;
+			padding-top: 2.1rem;
+
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 50%;
+				top: 0;
+				transform: translateX(-50%);
+				width: 100vw;
+				border-bottom: 1px solid $border-color;
+			}
+		}
+	}
+
+	.footer-block__heading {
+		text-transform: none;
+	}
+
+	.footer-block--image {
+		position: relative;
+		text-align: center;
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			transform: translateX(-50%);
+			width: 100vw;
+			border-bottom: 1px solid $border-color;
+		}
+	}
+
+	.footer__blocks-wrapper {
+		display: flex;
+		align-items: stretch;
+		column-gap: 6.4rem;
+		@include media-breakpoint-down(lg) {
+			flex-wrap: wrap;
+		}
+	}
+
+	.footer-block--newsletter {
+		flex: 1 0 100%;
+		align-items: center;
+		margin-top: 0;
+
+		@include media-breakpoint-up(xl) {
+			flex: 1 0 31.4rem;
+			border-right: 1px solid $border-color;
+		}
+
+		@include media-breakpoint-down(lg) {
+			position: relative;
+			padding: 4.8rem 0;
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				transform: translateX(-50%);
+				width: 100vw;
+				border-bottom: 1px solid $border-color;
+			}
+		}
+
+		@include media-breakpoint-down(sm) {
+			margin-bottom: 0;
+		}
+
+		.footer-block__newsletter {
+			text-align: left;
+			max-width: 34.6rem;
+			@include media-breakpoint-down(lg) {
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			@include media-breakpoint-down(xs) {
+				max-width: 30rem;
+			}
+		}
+
+		.newsletter-form {
+			margin: 0;
+			max-width: 33.5rem;
+		}
+
+		.newsletter-form__field-wrapper {
+			max-width: none;
+		}
+
+		.newsletter-form__button {
+			width: auto;
+			font-size: $font-size-extra-small;
+			font-weight: $weight-medium;
+			line-height: 1.09em;
+			padding: 0 2.6rem;
+			color: $primary;
+			border-radius: $border-radius-input;
+			outline: none;
+
+			@include media-breakpoint-down(sm) {
+				padding: 0 2rem;
+			}
+
+
+			&:focus,
+			&:focus-visible {
+				outline: none;
+			}
+		}
+
+		.footer-block__heading {
+			font-weight: $weight-medium;
+			letter-spacing: $letter-spacing-1;
+			line-height: 0.98em;
+			margin-bottom: 1.2rem;
+
+			@include media-breakpoint-up(md) {
+				max-width: 95%;
+			}
+
+			@include media-breakpoint-down(lg) {
+				margin: 0 auto 1.5rem;
+				letter-spacing: 0;
+				max-width: 90%;
+			}
+
+			@include media-breakpoint-down(xs) {
+				font-size: $font-size-extra-mega-large;
+				line-height: 1.1em;
+			}
+		}
+
+		.footer-block__text {
+			font-weight: $weight-normal;
+			line-height:$line-height-base;
+			margin-bottom: 3.2rem;
+
+			@include media-breakpoint-up(md) {
+				max-width: 75%;
+			}
+
+			@include media-breakpoint-down(lg) {
+				margin: 0 auto 2.4rem;
+				max-width: 85%;
+			}
+
+			p {
+				margin: 0;
+			}
+		}
+	}
+
+	.footer-block--items {
+		flex: 1 0 auto;
+		padding: 0;
+
+		@include media-breakpoint-up(xl) {
+			padding: 6.2rem 0 5.9rem;
+		}
+
+		@include media-breakpoint-only(lg) {
+			padding: 4.8rem 0;
+		}
+
+		@include media-breakpoint-only(md) {
+			padding: 4.8rem 0;
+		}
+	}
+
+	.footer-block {
+		&.grid__item {
+			@include media-breakpoint-down(sm) {
+				margin: 0;
+			}
+		}
+
+		&.footer-block--menu {
+			&:first-child {
+				@include media-breakpoint-down(sm) {
+					.footer-block__heading {
+						&::after {
+							content: none;
+						}
+					}
+				}
+			}
+
+			.footer-block__heading {
+				margin-bottom: 1.7rem;
+
+				> div {
+					font-size: $font-size-small;
+					font-weight: $weight-medium;
+					letter-spacing: 0.038em;
+					line-height: $line-height-base;
+					color: $primary;
+
+					@include media-breakpoint-up(xl) {
+						padding-top: .6rem;
+					}
+				}
+			}
+
+			ul {
+				li > a,
+				li > span {
+					color: $gray-700;
+					font-size: $font-size-small;
+					line-height: $line-height-base;
+					padding-bottom: 0.62rem;
+					@include media-breakpoint-down(sm) {
+						padding: 0.62rem 0;
+					}
+				}
+			}
+
+			@include media-breakpoint-down(sm) {
+				.footer-block__heading {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					position: relative;
+					padding-top: 1.7rem;
+
+					&::after {
+						content: "";
+						display: block;
+						position: absolute;
+						left: 50%;
+						top: 0;
+						transform: translateX(-50%);
+						width: 100vw;
+						border-bottom: 1px solid $border-color;
+					}
+
+					&.active {
+						svg {
+							transform: rotate(180deg);
+						}
+					}
+
+					svg {
+						width: 10px;
+						height: 10px;
+						margin-right: 8px;
+						transition: all 0.2s ease;
+					}
+				}
+
+				.footer-block__details-content {
+					transform: scaleY(0);
+					max-height: 0;
+					margin-bottom: 0;
+					transform-origin: top;
+					transition: all 0.2s ease;
+
+					&.active {
+						margin-bottom: 1.7rem;
+						max-height: 500px;
+						transform: scaleY(1);
+					}
+				}
+			}
+		}
+	}
+
+	.list-social {
+		flex-wrap: nowrap;
+	}
+}

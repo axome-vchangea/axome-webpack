@@ -1,0 +1,176 @@
+@import 'Helpers/_helpers';
+
+.ax-section.section-image-with-text {
+    margin-top: 0;
+
+    .image-with-text:not(.secondary__model) {
+        .image-with-text__grid {
+            border: 1px solid $border-color;
+            @include media-breakpoint-up(xl) {
+                max-height: 792px;
+            }
+
+            @include media-breakpoint-up(md) {
+                &:not(.image-with-text__grid--reverse) {
+                    .image-with-text__media-item {
+                        border-right: 1px solid $border-color;
+                    }
+                }
+
+                &.image-with-text__grid--reverse {
+                    .image-with-text__media-item {
+                        border-left: 1px solid $border-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .image-with-text__subheading {
+        font-size: $font-size-large;
+        line-height: $line-height-base;
+        margin-bottom: 1rem;
+        @include media-breakpoint-down(sm) {
+            font-size: $font-size-base;
+        }
+    }
+
+    .image-with-text__heading {
+        line-height: 0.98em;
+        margin-bottom: 1.5rem;
+        letter-spacing: $letter-spacing-1;
+
+        @include media-breakpoint-down(md) {
+            font-size: $font-size-h4;
+            margin-bottom: 2.5rem;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .image-with-text__text {
+        line-height: $line-height-base;
+        margin-bottom: 4.5rem;
+        @include media-breakpoint-up(lg) {
+            max-width: 75%;
+        }
+        @include media-breakpoint-down(sm) {
+            font-size: $font-size-extra-small;
+        }
+    }
+
+    .image-with-text__media-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @include media-breakpoint-up(xl) {
+            padding: 7% 0;
+        }
+
+        @include media-breakpoint-down(sm) {
+            border-bottom: 1px solid $border-color;
+        }
+    }
+
+    .image-with-text__content {
+        @include media-breakpoint-down(sm) {
+            padding: 2.4rem 1.8rem 1.8rem;
+        }
+
+        > * + * {
+            margin-top: 0;
+        }
+    }
+
+    .image-with-text.secondary__model {
+        @include media-breakpoint-down(sm) {
+            .page-width {
+                padding: 0 30px!important;
+            }
+        }
+
+        .image-with-text__media {
+            @include media-breakpoint-down(sm) {
+                padding-bottom: 115% !important;
+            }
+        }
+
+        .image-with-text__media-item {
+            padding: 0;
+
+            @include media-breakpoint-up(md) {
+                width: 62%;
+                flex-grow: 0;
+            }
+        }
+
+        .image-with-text__text-item {
+            > div.image-with-text__content {
+                @include media-breakpoint-down(sm) {
+                    background: $gray-200;
+                    padding: 48px 20px;
+                }
+            }
+
+            @include media-breakpoint-up(md) {
+                flex-grow: 1;
+            }
+
+            .image-with-text__heading {
+                font-size: $font-size-h3;
+
+                @include media-breakpoint-down(sm) {
+                    margin-bottom: 15px;
+                }
+            }
+
+            .image-with-text__text {
+                color: $gray-700;
+                max-width: 260px;
+                margin-bottom: 10px;
+            }
+
+            .image-with-text__image {
+                margin-bottom: 15px;
+
+                @include media-breakpoint-down(sm) {
+                    order: -1;
+                }
+            }
+
+            .btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 24px;
+                margin-bottom: 10px;
+
+                @include media-breakpoint-down(sm) {
+                    margin-top: 10px;
+                }
+
+                &::before {
+                    content: '';
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23FEFEFE' fill-rule='evenodd' d='M6.728 4.203 5.22 2.147a.827.827 0 0 0-1.116-.205C1.989 3.31 1.256 5.525 2.214 7.266c.887 1.61 2.25 3.577 4.332 5.659s4.048 3.444 5.66 4.332c1.74.958 3.955.224 5.323-1.89a.827.827 0 0 0-.205-1.117l-2.056-1.507a1.5 1.5 0 0 0-1.558-.132l-.82.41c-.581.29-1.367.387-2.104.008-.56-.289-1.45-.85-2.472-1.872-1.022-1.022-1.583-1.912-1.872-2.472-.38-.738-.283-1.523.008-2.105l.41-.82a1.5 1.5 0 0 0-.132-1.557ZM3.288.683C.749 2.325-.558 5.337.9 7.988c.953 1.73 2.4 3.81 4.585 5.996 2.186 2.186 4.267 3.633 5.997 4.586 2.65 1.46 5.663.151 7.307-2.39a2.327 2.327 0 0 0-.578-3.14l-2.056-1.508a3 3 0 0 0-3.116-.264l-.82.41a.822.822 0 0 1-.747.016c-.43-.221-1.19-.692-2.097-1.599S7.997 8.428 7.776 7.998a.822.822 0 0 1 .016-.747l.41-.82a3 3 0 0 0-.264-3.115L6.43 1.26A2.327 2.327 0 0 0 3.289.682Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+                    background-repeat: no-repeat;
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 10px;
+                    transition: $transition-base;
+                }
+
+                &:hover::before {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath fill='%23C5205B' fill-rule='evenodd' d='M6.728 4.203 5.22 2.147a.827.827 0 0 0-1.116-.205C1.989 3.31 1.256 5.525 2.214 7.266c.887 1.61 2.25 3.577 4.332 5.659s4.048 3.444 5.66 4.332c1.74.958 3.955.224 5.323-1.89a.827.827 0 0 0-.205-1.117l-2.056-1.507a1.5 1.5 0 0 0-1.558-.132l-.82.41c-.581.29-1.367.387-2.104.008-.56-.289-1.45-.85-2.472-1.872-1.022-1.022-1.583-1.912-1.872-2.472-.38-.738-.283-1.523.008-2.105l.41-.82a1.5 1.5 0 0 0-.132-1.557ZM3.288.683C.749 2.325-.558 5.337.9 7.988c.953 1.73 2.4 3.81 4.585 5.996 2.186 2.186 4.267 3.633 5.997 4.586 2.65 1.46 5.663.151 7.307-2.39a2.327 2.327 0 0 0-.578-3.14l-2.056-1.508a3 3 0 0 0-3.116-.264l-.82.41a.822.822 0 0 1-.747.016c-.43-.221-1.19-.692-2.097-1.599S7.997 8.428 7.776 7.998a.822.822 0 0 1 .016-.747l.41-.82a3 3 0 0 0-.264-3.115L6.43 1.26A2.327 2.327 0 0 0 3.289.682Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+                }
+            }
+
+            .ax-link {
+                color: $gray-700;
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@import 'Helpers/_helpers';
+
+#shopify-section-announcement-bar {
+    .announcement-bar-content {
+        display: flex;
+        font-size: $font-size-extra-super-small;
+        line-height: $line-height-small;
+        padding: 10px $grid-gutter-width 8px;
+
+        @include media-breakpoint-down(md) {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        &.color-accent-2 {
+            border: none;
+        }
+
+        .announcement-bar__message {
+            display: block;
+            flex-basis: 100%;
+            padding: 0;
+            margin: 0;
+            letter-spacing: normal;
+
+            &.center {
+                font-weight: $weight-bold;
+            }
+
+            @include media-breakpoint-up(lg) {
+                flex-basis: calc(100% / 3);
+                flex-shrink: 0;
+            }
+
+            &.uppercase {
+                text-transform: uppercase;
+            }
+
+            &:first-child {
+                text-align: left;
+
+                @include media-breakpoint-down(md) {
+                    display: none;
+                }
+            }
+
+            &:last-child {
+                text-align: right;
+
+                @include media-breakpoint-down(md) {
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,250 @@
+.product-miniature {
+	&:hover {
+		@include media-breakpoint-up(xl) {
+			.card__quick-add {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	.card--card, .card--standard .card__inner {
+		border-left-color: transparent;
+	}
+
+	.card--media .card__inner .card__content,
+	.card--media .card__media img {
+		padding: 2.5rem 2.5rem 0;
+
+		@include media-breakpoint-down(sm) {
+			padding: 2.5rem 1.2rem 0;
+		}
+	}
+
+	.card__media {
+		&.card__media_secondary {
+			@include media-breakpoint-up(xl) {
+				&:hover {
+					img {
+						&:first-child:not(:only-child) {
+							opacity: 0;
+						}
+
+						+ img {
+							opacity: 1;
+						}
+					}
+				}
+				+ .card__content {
+					position: absolute !important;
+					z-index: 2;
+				}
+			}
+
+			img {
+				transition: transform var(--duration-long) ease;
+				transform: scale(1.03);
+
+				+ img {
+					opacity: 0;
+				}
+			}
+		}
+	}
+
+	.card__content {
+		display: flex;
+		flex-direction: column;
+
+		.card__information {
+			display: flex;
+			align-items: flex-end;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			padding: 4rem 2.5rem 2rem;
+
+			@include media-breakpoint-down(sm) {
+				padding: 4rem 1.2rem 1.4rem;
+			}
+		}
+
+		.card__coloris {
+			display: flex;
+			align-items: center;
+			width: max-content;
+			background: $white;
+			color: $gray-600;
+			margin-top: .4rem;
+			padding: .2rem .3rem;
+			border-radius: 3px;
+			font-size: $font-size-extra-super-small;
+			font-weight: $weight-medium;
+			line-height: 1;
+			text-transform: uppercase;
+
+			.ellipse {
+				width: 1rem;
+				height: 1rem;
+				margin-right: .4rem;
+			}
+		}
+
+		.card__heading {
+			font-size: $font-size-extra-large;
+			font-weight: $weight-medium;
+			letter-spacing: -0.03em;
+			line-height: $line-height-small;
+			text-transform: none;
+			@include media-breakpoint-down(md) {
+				font-size: $font-size-large;
+				margin-bottom: .4rem;
+			}
+		}
+
+		.card__sub-heading {
+			font-size: $font-size-small;
+			line-height: $line-height-base;
+			color: $gray-700;
+			@include media-breakpoint-down(md) {
+				font-size: $font-size-extra-small;
+			}
+		}
+
+		.vendor {
+			font-size: $font-size-extra-small;
+			line-height: 17px;
+			margin-bottom: 8px;
+			@include media-breakpoint-down(sm) {
+				margin-bottom: 6px;
+			}
+		}
+
+
+		.price__container {
+			margin-top: .3rem;
+		}
+
+		.price {
+			.price__sale .price-item-without-save .price-item,
+			.price__regular .price-item {
+				color: $primary;
+				font-size: $font-size-large;
+				line-height: $line-height-small;
+				font-weight: $weight-medium;
+			}
+
+			.price-item-without-save,
+			.price-item-with-save {
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+			}
+
+			.price-item-with-save {
+				margin-top: -2px;
+
+				.price-item {
+					font-size: $font-size-base;
+					color: $gray-700;
+					line-height: $line-height-base;
+					@include media-breakpoint-down(md) {
+						font-size: $font-size-extra-small;
+					}
+
+					&.price-item-save {
+						color: $secondary;
+						margin-right: 0;
+					}
+				}
+			}
+
+			.price-item {
+				letter-spacing: 0;
+			}
+		}
+	}
+
+	.card__variants {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 8px;
+		padding-top: 1.7rem;
+
+		.variant {
+			height: 34px;
+
+			&:not(.color) {
+				width: 34px;
+			}
+
+			&.not-available {
+				opacity: .5;
+			}
+
+			&.swatch {
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+				font-size: 0;
+			}
+
+			&.text {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: 1px solid $border-color;
+				font-size: $font-size-small;
+				padding: 5px;
+				line-height: 34px;
+				text-transform: uppercase;
+			}
+		}
+
+		.no-variant {
+			height: 34px;
+
+			&.text {
+				line-height: 34px;
+			}
+
+			&.swatch {
+				width: 34px;
+				display: block;
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+
+	.card__quick-add {
+		opacity: 0;
+		visibility: hidden;
+		transition: transform var(--duration-long) ease;
+		@include media-breakpoint-down(xl) {
+			display: none;
+		}
+
+		.btn {
+			width: 100%;
+		}
+	}
+}
+
+//Badge/Ribbons
+.card__badge {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.badge {
+	font-weight: $weight-medium;
+	font-size: $font-size-extra-super-small;
+	text-transform: uppercase;
+	color: $gray-800;
+	width: max-content;
+	background: transparent;
+}
